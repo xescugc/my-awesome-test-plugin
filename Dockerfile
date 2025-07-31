@@ -1,25 +1,27 @@
-# Use the official Golang image for building
 FROM golang:1.24.3 AS builder
-# Set working directory
+
 WORKDIR /app
-# Copy Go modules and dependencies
-#COPY go.mod go.sum ./
+
 COPY go.mod ./
+#COPY go.sum .
+
 RUN go mod download
-# Copy source code
-COPY . .
-# Build the application
-RUN go build -o main .
 
+COPY . ./
 
+RUN go build -o /my_app
 
-# Use a minimal base image for final deployment
-FROM alpine:latest
-# Set working directory in the container
-WORKDIR /root/
-# Copy the built binary from the builder stage
-COPY --from=builder /app/main .
-# Expose the application port
 EXPOSE 8080
-# Run the application
-CMD ["./main"]
+CMD ["/my_app"]
+
+#FROM alpine:latest
+
+#WORKDIR /
+
+#COPY --from=builder /my_app /my_app
+
+#EXPOSE 8080
+#CMD ["/my_app"]
+
+##ENTRYPOINT ["/my_app"]
+#CMD ["/my_app"]
