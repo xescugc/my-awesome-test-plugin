@@ -1,3 +1,3 @@
-module github.com/xescugc/my-awesome-test-plugin
+module github.com/xescugc/cy-go-plugin
 
 go 1.24.3
