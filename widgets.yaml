@@ -1,0 +1,15 @@
+- type: table
+  placement:
+    type: component
+    config:
+      tab_name: Quotes
+  widget:
+    query: "select q.message, a.name from quotes as q join authors as a on q.author_id = a.id"
+    columns:
+      - value: message
+        title: Message
+        type: string
+      - value: author
+        title: Author
+        type: string
+

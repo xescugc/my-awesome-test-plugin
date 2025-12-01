@@ -1,6 +1,6 @@
 FROM golang:1.24.3 AS builder
 
-WORKDIR /app
+WORKDIR /plugin
 
 COPY go.mod ./
 

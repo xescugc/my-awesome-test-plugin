@@ -9,14 +9,10 @@ scope:
 - organization:project:*
 - organization:credential:*
 configuration:
-- name: message
-  groups:
-  - name: config
-    technologies: [pipeline]
-    vars:
-    - name: "Message"
-      description: "Message to display in the job"
-      key: message
-      widget: simple_text
-      type: string
-      default: "hello world and especially to you <3"
+- name: "Message"
+  description: "Message to display in the job"
+  key: message
+  widget: simple_text
+  type: string
+  default: "hello world and especially to you <3"
+
